@@ -46,7 +46,10 @@ reset:
 
 build: all $(BUILD_DIR)_dir
 	cp $(BIN_DIR)/*.exe $(BUILD_DIR)
-	cp $(BIN_DIR)/*.dll $(BUILD_DIR)
+	set -- *.dll \
+    	; if [ -e "$$1" ]; then \
+        	cp $(BIN_DIR)/*.dll $(BUILD_DIR); \
+    	fi
 #^remove created files if wanted clean
 ifeq (clean,$(firstword $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))))
 	rm -rf $(BIN_DIR)

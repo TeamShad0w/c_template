@@ -62,7 +62,7 @@ reset:
 	rm -rf $(BIN_DIR)
 	rm -rf $(BUILD_DIR)
 
-build: $(BIN_DIR) $(BUILD_DIR)_dir $(BIN_DIR)/$(EXEC)
+build: $(BIN_DIR)_dir $(BUILD_DIR)_dir $(BIN_DIR)/$(EXEC)
 	cp $(BIN_DIR)/*.exe $(BUILD_DIR)
 	set -- *.dll \
     ; if [ -e "$$1" ]; then \

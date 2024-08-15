@@ -9,6 +9,8 @@ TEST_SUBEXT=the subextension for test files (e.g. .test) (Test file example : ma
 C=the compiler you want to use (e.g. gcc)
 SRCEXTENSION=the extension for the source files (e.g. .c)
 OBJEXTENSION=the extension to use for the object files (e.g. .c.o)
+INCLUDEDIR=the path to the directory containing all header files (e.g ./include)
+HEADEREXTENSION=the extension to use for the header files (e.g .h)
 CFLAGS=the flag(s) to use for the compiler (will be put just after the compiler call)
 C2OFLAGS=the flag(s) to use for the compilation from code to object files (will be put at the end of the command line) (e.g. -W)
 O2EXEFLAGS=the flag(s) to use for the linking of the different object files into an executable (will be put at the end of the command line)
@@ -45,7 +47,7 @@ $(BIN_DIR)/%$(OBJEXTENSION): $(SRC_DIR)/%$(SRCEXTENSION)
 $(BIN_DIR)/$(TEST_EXEC): $(TEST_OBJ)
 	$(C) $(CFLAGS) -o $@ $^ $(O2EXEFLAGS)
 
-$(BIN_DIR)/%$(TEST_SUBEXT)$(OBJEXTENSION) : $(SRC_DIR)/%$(TEST_SUBEXT)$(SRCEXTENSION) $(SRC_DIR)/%$(TEST_SUBEXT).h
+$(BIN_DIR)/%$(TEST_SUBEXT)$(OBJEXTENSION) : $(SRC_DIR)/%$(TEST_SUBEXT)$(SRCEXTENSION) $(INCLUDE)/%($HEADEREXTENSION)
 	$(C) $(CFLAGS) -c -o $@ $< $($@) $(C2OFLAGS)
 
 $(BIN_DIR)/%$(TEST_SUBEXT)$(OBJEXTENSION): $(SRC_DIR)/%$(TEST_SUBEXT)$(SRCEXTENSION)

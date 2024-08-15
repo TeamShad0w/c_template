@@ -8,5 +8,5 @@ This code contains a [notice file](https://github.com/TeamShad0w/c_template/blob
 Once the repo is downloaded, open the [makefile](https://github.com/TeamShad0w/c_template/blob/main/makefile).
 
 >[!IMPORTANT]
-> You need to setup the lines 2 to 14
+> You need to setup the lines 2 to 16
 
